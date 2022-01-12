@@ -4,10 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div id="test">test div</div>
+<body onload="duo()">
+    <div id="container">
+        <div class=text>Make Your Choice!</div>
+        <img class=pic src="lastrock.png" alt="rock">
+        <img class= pic src="lastscissors.png" alt="paper">
+        <img class= pic src="scissors.png" alt="scissors">
+        <div class=break></div>
+        <button id= "rock" class=btn data-key='1'> Rock </button>
+        <button id="paper" class=btn data-key='2'>Paper </button>
+        <button id= "scissors" class=btn data-key='3'>Scissors</button>
+        <div id=scorekeep class=scorekeep>  </div>
+    </div>
     <script src="scripts.js"></script>
 </body>
 </html>

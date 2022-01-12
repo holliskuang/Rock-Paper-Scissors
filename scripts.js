@@ -1,3 +1,5 @@
+let yourScore=0;
+let computerScore=0;
 function computerPlay (){ 
    let random=Math.random();
    if (random>=0 && random<=(1/3)){
@@ -12,64 +14,115 @@ function computerPlay (){
 }
 
 function playRound(playerSelection){
+    
     let choice=playerSelection.toLowerCase();
     let computerSelection= computerPlay();
     //Player Chooses Rock 
     if ((choice==="rock") && computerSelection==="rock"){
-        return "It's a Tie"
+        alert("It's a Tie");
+        
     }
     if ((choice==="rock") && computerSelection==="paper"){
-        return "You Lose, Paper beats Rock"
+        alert("You Lose, Paper beats Rock")
+        computerScore++;
+        
     }
+    
     if ((choice==="rock") && computerSelection==="scissors"){
-        return "You Win, Rock beats Scissors"
+        alert("You Win, Rock beats Scissors")
+        yourScore++;
     }
 
     //Player Chooses Paper
     if ((choice==="paper") && computerSelection==="rock"){
-        return "You Win, Paper beats Rock"
+        alert("You Win, Paper beats Rock")
+        yourScore++;
     }
     if ((choice==="paper") && computerSelection==="paper"){
-        return "It's a Tie"
+        alert("It's a Tie")
     }
     if ((choice==="paper") && computerSelection==="scissors"){
-        return "You Lose, Scissors beats Paper"
+        alert("You Lose, Scissors beats Paper")
+        computerScore++;
     }
     // Player Chooses Scissors
     if ((choice==="scissors") && computerSelection==="rock"){
-        return "You Lose, Rock beats Scissors"
+        alert("You Lose, Rock beats Scissors")
+        computerScore++;
     }
     if ((choice==="scissors") && computerSelection==="paper"){
-        return "You Win, Scissors beats Paper"
+        alert("You Win, Scissors beats Paper")
+        yourScore++;
     }
     if ((choice==="scissors") && computerSelection==="scissors"){
-        return "It's a Tie"
+        alert("It's a Tie")
     }
 }
+//take in buttons
+const buttonAll= document.querySelectorAll(".btn");
 
+function playGame(e){
+   playRound(this.id);
+   myFunction();
+   if(yourScore===5) {
+       alert("You are first to Five, You Win!")
+       yourScore=0;
+       computerScore=0;
+       myFunction();
+   }
+   else if (computerScore===5) {
+    alert("The Computer is first to Five, You Lose!")
+    yourScore=0;
+    computerScore=0;
+    myFunction();
+}
+}
 
+// iterate through so that when each button is pressed, it activates a game
+window.addEventListener('click', function(e){
+    buttonAll.forEach(button => button.addEventListener('click', playGame))
+    
+    
+})
+function myFunction() {
+    document.getElementById("scorekeep").innerHTML = "Your Score: " +yourScore + "     |    " + "Computer Score: " + computerScore;
+ }
 
-function game() {
+ function loadAlert(){
+     alert("Pick an Option and the Computer will as well.                                      First to Five Wins. Good Luck!")
+ }
+
+ //Allow alert and scoreboard to show up when page loads
+ function duo(){
+    myFunction();
+     loadAlert();
+     
+ }
+
+// 5-game function with prompts 
+
+/*function game() {
     let yourScore=0;
     let computerScore=0;
     for ( i=0; i<5; i++){
         let selection = prompt("What's your selection?");
-        console.log(selection);
+        alert(selection);
         let results=playRound(selection);
         if (results.includes("You Win")){
         yourScore++;
-        console.log(results);
-        console.log("Your score:" + yourScore + "// Computer Score:" + computerScore);
+        alert(results);
+        alert("Your score:" + yourScore + "// Computer Score:" + computerScore);
         }
         else if (results.includes("You Lose")) {
         computerScore++;
-        console.log(results);
-        console.log("Your score:" + yourScore + "// Computer Score:" + computerScore);
+        alert(results);
+        alert("Your score:" + yourScore + "// Computer Score:" + computerScore);
         }
         else if(results.includes("Tie")){
-        console.log(results);
-        console.log("Your score:" + yourScore + "// Computer Score:" + computerScore);
+        alert(results);
+        alert("Your score:" + yourScore + "// Computer Score:" + computerScore);
         }
     
     }
 }
+*/

@@ -1,0 +1,47 @@
+#container {
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+  min-width: 100vw;
+}
+button {
+    display: flex;
+    padding: 30px;
+    margin: 20px;
+    border-radius: 8px;
+    border: 2px solid lightblue;
+    background-color: lightblue;
+    color: white;
+    font-size: 20px;
+    font-weight: 700px;
+    width: 140px;
+    justify-content: center;
+}
+.text{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 40px;
+    font-size: 50px;
+    font-weight: 1000px;
+}
+.pic {
+    display:flex;
+    width: 100px;
+    height: 150px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 40px;
+}
+.break{
+    width:100%;
+}
+.scorekeep {
+    display:flex;
+    width:100%;
+    justify-content: center;
+    margin-top: 50px;
+    font-size: 20px;
+}
